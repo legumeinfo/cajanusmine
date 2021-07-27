@@ -1,0 +1,41 @@
+#!/bin/sh
+
+echo ""
+echo "##########################################################################################################################################"
+echo "##########################################################################################################################################"
+echo "######################################################## CAJANUSMINE INTEGRATE ###########################################################"
+echo "##########################################################################################################################################"
+echo "##########################################################################################################################################"
+echo ""
+
+## ontologies
+./gradlew --stacktrace integrate -Psource=so
+./gradlew --stacktrace integrate -Psource=go
+./gradlew --stacktrace integrate -Psource=plant-ontology
+./gradlew --stacktrace integrate -Psource=plant-trait-ontology
+
+## InterPro
+./gradlew --stacktrace integrate -Psource=interpro
+./gradlew --stacktrace integrate -Psource=interpro-go
+
+## LIS gene families and phylotree
+./gradlew --stacktrace integrate -Psource=legume.genefam.fam1.M65K
+./gradlew --stacktrace integrate -Psource=legume.genefam.fam1.M65K.trees_ML_rooted
+
+## aesev about
+./gradlew --stacktrace integrate -Psource=cajca-about
+
+## aesev.CIAT22838.gnm1
+./gradlew --stacktrace integrate -Psource=ICPL87119.gnm1.SBGP.genome_main
+./gradlew --stacktrace integrate -Psource=ICPL87119.gnm1.ann1.Y27M.cds
+./gradlew --stacktrace integrate -Psource=ICPL87119.gnm1.ann1.Y27M.gene_models_main
+./gradlew --stacktrace integrate -Psource=ICPL87119.gnm1.ann1.Y27M.protein
+./gradlew --stacktrace integrate -Psource=ICPL87119.gnm1.ann1.Y27M.transcript
+./gradlew --stacktrace integrate -Psource=ICPL87119.gnm1.ann1.Y27M.iprscan
+./gradlew --stacktrace integrate -Psource=ICPL87119.gnm1.ann1.Y27M.legfed_v1_0.M65K.gfa
+./gradlew --stacktrace integrate -Psource=ICPL87119.gnm1.ann1.Y27M.legfed_v1_0.M65K.pathway
+
+
+# ## TEMP FOR PATHWAYS
+# ./gradlew --stacktrace integrate -Psource=G19833.gnm1.ann1.pScz.legfed_v1_0.M65K.gfa
+# ./gradlew --stacktrace integrate -Psource=G19833.gnm1.ann1.pScz.pathway

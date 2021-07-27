@@ -1,0 +1,42 @@
+#!/bin/sh
+rm -f *.log
+
+## echo a big marker so we can see when this run started in the scroll
+echo ""
+echo "#######################################################################################"
+echo "#######################################################################################"
+echo "################################### POSTPROCESS #######################################"
+echo "#######################################################################################"
+echo "#######################################################################################"
+echo ""
+
+## IM CORE
+# ./gradlew --stacktrace postprocess -Pprocess=do-sources
+# ./gradlew --stacktrace postprocess -Pprocess=create-utr-references
+# ./gradlew --stacktrace postprocess -Pprocess=create-references
+# ./gradlew --stacktrace postprocess -Pprocess=make-spanning-locations
+# ./gradlew --stacktrace postprocess -Pprocess=create-chromosome-locations-and-lengths
+# ./gradlew --stacktrace postprocess -Pprocess=create-intergenic-region-features
+# ./gradlew --stacktrace postprocess -Pprocess=transfer-sequences
+# ./gradlew --stacktrace postprocess -Pprocess=populate-child-features
+# ./gradlew --stacktrace postprocess -Pprocess=create-gene-flanking-features
+
+## LIS GENOMIC
+# ./gradlew --stacktrace postprocess -Pprocess=lis-populate-gene-protein-collections
+# ./gradlew --stacktrace postprocess -Pprocess=lis-populate-protein-pathway-collections
+
+## LIS GENETIC
+# ./gradlew --stacktrace postprocess -Pprocess=lis-populate-qtl-gene-collections
+
+## LIS OTHER
+# ./gradlew --stacktrace postprocess -Pprocess=lis-populate-publications
+
+## VIEWS AND INDEXES
+# ./gradlew --stacktrace postprocess -Pprocess=create-location-overlap-index
+# ./gradlew --stacktrace postprocess -Pprocess=create-overlap-view
+# ./gradlew --stacktrace postprocess -Pprocess=create-attribute-indexes
+
+## DO THIS AFTER EACH UPDATE
+./gradlew --stacktrace postprocess -Pprocess=summarise-objectstore
+./gradlew --stacktrace postprocess -Pprocess=create-autocomplete-index
+./gradlew --stacktrace postprocess -Pprocess=create-search-index
